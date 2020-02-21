@@ -1,5 +1,6 @@
 package com.techelevator.vendingmachine;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
 
@@ -11,6 +12,8 @@ public class SelectItem {
 	public SelectItem() {
 		
 	}
+	
+	static ArrayList<String> codeList = new ArrayList<String>();
 
 	public void run() {
 		
@@ -28,29 +31,34 @@ public class SelectItem {
 		PrintListForSelectItem print = new PrintListForSelectItem();
 		print.printItems();
 		
-		while (true) {	
+		while (true) {
 			Iterator<VendingMachineProduct> iter =  vm.getVendoProducts().values().iterator();
+			while(iter.hasNext() ) {
 				VendingMachineProduct vmp = (VendingMachineProduct) iter.next();
-					System.out.print("Please enter item code: ");
-					Scanner userInput = new Scanner(System.in);
-					try {
-						itemCode = userInput.next();
-						if(itemCode.equals(vmp.getLocation()) && vmp.getQuantity() > 0) {
-							PurchaseMenu currentMoney = new PurchaseMenu();
-							System.out.println("Purchased " + vmp.getName() + "for $" + vmp.getPrice() + ". remaining money is " + (currentMoney.getTotalMoney() - vmp.getPrice()));
-							System.out.println(vmp.getMessage());
-						} else {
-							System.out.println(vmp.getName() + " is SOLD OUT");
 
-						}
-						
-					} catch (Exception e) {
-						System.out.println(itemCode + " does not exist!");
-
-					}				
+				System.out.print("Please enter item code: ");
+				Scanner userInput = new Scanner(System.in);
 			
+				try {
+					itemCode = userInput.next();
+					codeList.add(vmp.getLocation());
+				
+				
+			} catch (Exception e) {
+						System.out.println(itemCode + " does not exist!");
+			}
+			}
+			for (String i : codeList) {
+				VendingMachineProduct vmp = (VendingMachineProduct) iter.next();
+				
+				if(i.equalsIgnoreCase(itemCode) && vmp.getQuantity() > 0) {
+					PurchaseMenu currentMoney = new PurchaseMenu();
+					System.out.println("Purchased " + vmp.getName() + "for $" + vmp.getPrice() + ". remaining money is " + (currentMoney.getTotalMoney() - vmp.getPrice()));
+					double moneyAfterPurchase = 0;
+					moneyAfterPurchase -= vmp.getPrice();
+					System.out.println(vmp.getMessage());
+				}
+			}
 		}
 	}
-	
-	
 }

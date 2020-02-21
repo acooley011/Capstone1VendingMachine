@@ -20,6 +20,9 @@ public class PurchaseMenu {
 	String dollar = "";
 	int amount = 0;
 	int totalMoney = 0;
+	int quarters = 0;
+	int dimes = 0;
+	int nickels = 0;
 	
 	private Menu menu;
 
@@ -41,6 +44,23 @@ public class PurchaseMenu {
 			} else if (choice.equals(PURCHASE_MENU_OPTION_SELECT_PRODUCT)){
 				SelectItem select = new SelectItem();
 				select.run();
+				
+			} else if (choice.equals(PURCHASE_MENU_OPTION_FINISH_TRANSACTION)) {
+			//	totalMoney = moneyAfterPurchase;
+				totalMoney *= 100;
+				if(totalMoney > 25) {
+					totalMoney -=  25;
+					quarters ++;
+				} else if(totalMoney > 10) {
+					totalMoney -=  10;
+					dimes ++;
+				} else if(totalMoney > 5) {
+					totalMoney -=  5;
+					nickels ++;
+				}
+				System.out.println("Change: " + quarters + " quarters, " + dimes + " dimes, " + nickels + " nickels.");
+				totalMoney = 0;
+				//then it needs to return to VendingMachine CLI menu
 				
 			}
 		}
