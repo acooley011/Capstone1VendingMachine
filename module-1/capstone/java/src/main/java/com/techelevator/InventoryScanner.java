@@ -36,6 +36,9 @@ public class InventoryScanner {
 			Items i = new Items(name, price, slot, type);
 
 			info.put(slot, i);
+			info.put(name, i);
+			info.put(price, i);
+			info.put(type, i);
 			
 			//System.out.println(slot +" "+ name+" " + price+" " + type);
 		}			

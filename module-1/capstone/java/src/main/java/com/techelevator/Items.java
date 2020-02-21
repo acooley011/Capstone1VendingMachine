@@ -15,7 +15,10 @@ public class Items {
 
 	//CTOR
 	public Items(String name, double price, String slot, String type) {
-
+		this.name = name;
+		this.price = price;
+		this.slot = slot;
+		this.type = type;
 	}
 
 	//getters
