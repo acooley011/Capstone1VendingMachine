@@ -1,4 +1,4 @@
-package com.techelevator;
+package com.techelevator.vendingmachine.product;
 
 import java.util.*;
 import java.io.*;

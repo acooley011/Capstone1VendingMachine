@@ -1,9 +1,11 @@
-package com.techelevator;
+package com.techelevator.vendingmachine;
 
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+
+import com.techelevator.vendingmachine.product.Items;
 
 public class InventoryScanner {
 	
@@ -38,7 +40,12 @@ public class InventoryScanner {
 			info.put(slot, i);
 			
 			//System.out.println(slot +" "+ name+" " + price+" " + type);
-		}			
+		}
+		
+		//sf:close the scanner to avoid leak
+		inventoryScanner.close();
+		
 		return info;
+//		
 	}
 }

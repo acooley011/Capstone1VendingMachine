@@ -1,6 +1,8 @@
-package com.techelevator;
+package com.techelevator.vendingmachine;
 
 import java.util.*;
+
+import com.techelevator.vendingmachine.product.Items;
 
 public class mainScreen{
 

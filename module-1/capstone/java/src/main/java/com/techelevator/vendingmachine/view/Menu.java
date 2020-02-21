@@ -1,4 +1,4 @@
-package com.techelevator.view;
+package com.techelevator.vendingmachine.view;
 
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -45,7 +45,8 @@ public class Menu {
 		out.println();
 		for (int i = 0; i < options.length; i++) {
 			int optionNum = i + 1;
-			out.println(optionNum + ") " + options[i]);
+			//sf: added some formating based on the requirements
+			out.println("(" + optionNum + ") " + options[i]);
 		}
 		out.print("\nPlease choose an option >>> ");
 		out.flush();
