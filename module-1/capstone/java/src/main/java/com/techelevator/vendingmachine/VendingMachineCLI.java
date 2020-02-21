@@ -46,15 +46,34 @@ public class VendingMachineCLI {
 				
 				Iterator<VendingMachineProduct> iter =  vm.getVendoProducts().values().iterator();
 				
-				while( iter.hasNext() ) {
+				while(iter.hasNext() ) {
 					VendingMachineProduct vmp = (VendingMachineProduct) iter.next();
-					System.out.println(vmp.getLocation() + "|" + vmp.getName() + "|" + vmp.getPrice() + "|" + vmp.getType());
-					
+						
+					if(vmp.getQuantity() < 1) {
+						if(vmp.getName().equals("Little League Chew")) {
+							System.out.println("Product " + vmp.getName() + "\t| SOLD OUT");
+						} else if(vmp.getName().equals("U-Chews") || vmp.getName().equals("Cola") || vmp.getName().equals("Moonpie") || vmp.getName().equals("Heavy")) {
+							System.out.println("Product " + vmp.getName() + "\t\t\t| SOLD OUT");
+						} else {
+							System.out.println("Product " + vmp.getName() + "\t\t| SOLD OUT");
+						}
+					} else {
+						if(vmp.getName().equals("Little League Chew")) {
+							System.out.println("Product " + vmp.getName() + "\t| Quantity " + vmp.getQuantity());
+						} else if(vmp.getName().equals("U-Chews") || vmp.getName().equals("Cola") || vmp.getName().equals("Moonpie") || vmp.getName().equals("Heavy")) {
+							System.out.println("Product " + vmp.getName() + "\t\t\t| Quantity " + vmp.getQuantity());
+						} else {
+							System.out.println("Product " + vmp.getName() + "\t\t| Quantity " + vmp.getQuantity());
+						}
+					}
 				}
 				
 			} else if (choice.equals(MAIN_MENU_OPTION_PURCHASE)) {
-				// do purchase
-				System.out.println("To be added2!!!");
+				// call new class Purchase Menu and run it
+				Menu menu = new Menu(System.in, System.out);
+				PurchaseMenu nextMenu = new PurchaseMenu(menu);
+				nextMenu.run();
+				
 			} else if (choice.equals(MAIN_MENU_OPTION_EXIT)) { //sf: added exit menu
 				// do exit
 				System.out.println("Thank you for choosing Vendo-Matic 800!");

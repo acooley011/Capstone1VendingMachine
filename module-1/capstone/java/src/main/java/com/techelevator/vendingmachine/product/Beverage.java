@@ -5,8 +5,7 @@ public class Beverage implements VendingMachineProduct {
 	private String location;
 	private String name;
 	private double price;
-	private String type;
-	
+	private String type;	
 	
 	public String getLocation() {
 		return location;
@@ -32,4 +31,10 @@ public class Beverage implements VendingMachineProduct {
 	public void setType(String type) {
 		this.type = type;
 	}
+	
+	public int getQuantity() {
+		// TODO Auto-generated method stub
+		return 5;
+	}
+	
 }

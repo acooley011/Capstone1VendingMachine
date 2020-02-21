@@ -32,6 +32,11 @@ public class Candy implements VendingMachineProduct {
 	public void setType(String type) {
 		this.type = type;
 	}
+	@Override
+	public int getQuantity() {
+		// TODO Auto-generated method stub
+		return 5;
+	}
 	
 	
 }

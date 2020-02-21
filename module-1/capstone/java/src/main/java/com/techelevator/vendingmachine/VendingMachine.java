@@ -25,8 +25,6 @@ public class VendingMachine {
 	
 	private Map<String, VendingMachineProduct> vendoProducts;
 	
-	
-	
 	public Map<String, VendingMachineProduct> getVendoProducts() {
 		return vendoProducts;
 	}

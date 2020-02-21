@@ -73,7 +73,7 @@ public class VendingMachineLoader {
 				}
 			}
 			
-			System.out.println("Vendo product size: " + vendoProducts.size());
+			System.out.println("Total products for sale: " + vendoProducts.size());
 
 			//sf:close the scanner to avoid leak
 			inventoryScanner.close();
