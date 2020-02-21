@@ -7,7 +7,9 @@ public class Gum implements VendingMachineProduct {
 	private double price;
 	private String type;
 	
-	
+	public String getMessage() {
+		return "Chew Chew, Yum!";
+	}
 	public String getLocation() {
 		return location;
 	}

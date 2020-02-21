@@ -7,6 +7,9 @@ public class Beverage implements VendingMachineProduct {
 	private double price;
 	private String type;	
 	
+	public String getMessage() {
+		return "Glug Glug, Yum!";
+	}
 	public String getLocation() {
 		return location;
 	}

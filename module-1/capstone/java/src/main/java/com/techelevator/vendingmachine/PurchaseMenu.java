@@ -5,7 +5,11 @@ import java.util.Iterator;
 import com.techelevator.vendingmachine.product.VendingMachineProduct;
 import com.techelevator.vendingmachine.view.Menu;
 
+
 public class PurchaseMenu {
+	public PurchaseMenu() {
+		
+	}
 	
 	private static final String PURCHASE_MENU_OPTION_FEED_MONEY = "Feed Money";
 	private static final String PURCHASE_MENU_OPTION_SELECT_PRODUCT = "Select Product";
@@ -15,6 +19,7 @@ public class PurchaseMenu {
 	
 	String dollar = "";
 	int amount = 0;
+	int totalMoney = 0;
 	
 	private Menu menu;
 
@@ -29,13 +34,18 @@ public class PurchaseMenu {
 			if (choice.equals(PURCHASE_MENU_OPTION_FEED_MONEY)) {
 				
 				Bank currentMoney = new Bank(dollar, amount);
-				int totalMoney = currentMoney.moneyFed();
+				totalMoney = currentMoney.moneyFed();
 				
 				System.out.println("Current Money Provided: " + totalMoney);
 				
-			} else {
+			} else if (choice.equals(PURCHASE_MENU_OPTION_SELECT_PRODUCT)){
+				SelectItem select = new SelectItem();
+				select.run();
 				
 			}
 		}
+	}
+	public int getTotalMoney() {
+		return totalMoney;
 	}
 }

@@ -7,7 +7,9 @@ public class Candy implements VendingMachineProduct {
 	private double price;
 	private String type;
 	
-	
+	public String getMessage() {
+		return "Munch Munch, Yum!";
+	}
 	public String getLocation() {
 		return location;
 	}

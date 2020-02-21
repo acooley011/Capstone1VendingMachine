@@ -7,7 +7,9 @@ public class Chip implements VendingMachineProduct {
 	private double price;
 	private String type;
 	
-
+	public String getMessage() {
+		return "Crunch Crunch, Yum!";
+	}
 
 	public String getLocation() {
 		return location;
