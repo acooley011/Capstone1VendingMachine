@@ -19,9 +19,10 @@ public class mainScreen{
 		System.out.println("(3) Exit");
 		String choice = userInput.nextLine();
 		
+		
 		if(choice.equals("1")) {
 			//loop through list created by the input file.
-			System.out.print(productMap);
+			System.out.print(productMap.get(""));
 		} else if (choice.equals("2")) {
 			//go to a purchase method, that shows a new menu for add money, select and vend, and finish transaction.
 		} 
