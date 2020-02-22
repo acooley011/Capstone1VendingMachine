@@ -1,6 +1,11 @@
 package com.techelevator.vendingmachine;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Iterator;
+import java.util.logging.Logger;
 
 import com.techelevator.vendingmachine.product.VendingMachineProduct;
 import com.techelevator.vendingmachine.view.Menu;
@@ -39,6 +44,28 @@ public class PurchaseMenu {
 				Bank currentMoney = new Bank(dollar, amount);
 				totalMoney = currentMoney.moneyFed();
 				
+				//creates a new file at the path. we will have to make this gettable for other classes if we want them to update it
+				File log = new File("/m1-java-capstone-vending-machine/src/main/java/com/techelevator/vendingmachine/");
+				PrintWriter logger = null;
+				try {
+					logger = new PrintWriter(log);
+				} catch (FileNotFoundException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+				try {
+					log.createNewFile();
+					logger = new PrintWriter(log);
+
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				// this prints the updated feed money to the log file
+				logger.println(totalMoney);
+				
 				System.out.println("Current Money Provided: " + totalMoney);
 				
 			} else if (choice.equals(PURCHASE_MENU_OPTION_SELECT_PRODUCT)){
@@ -59,8 +86,16 @@ public class PurchaseMenu {
 					nickels ++;
 				}
 				System.out.println("Change: " + quarters + " quarters, " + dimes + " dimes, " + nickels + " nickels.");
+				
+				int totalChange = quarters * 25 + dimes * 10 + nickels * 5;
+				
+				//sigh. i cant figure out how to get this. i think it needs to be instantiated out of the run block, but i also cant get THAT it to work.
+				//should print the updated money
+				logger.println(totalChange);
+				
 				totalMoney = 0;
 				//then it needs to return to VendingMachine CLI menu
+
 				
 			}
 		}

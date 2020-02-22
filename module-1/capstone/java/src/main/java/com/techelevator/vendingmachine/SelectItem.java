@@ -48,17 +48,22 @@ public class SelectItem {
 						System.out.println(itemCode + " does not exist!");
 			}
 			}
-			for (String i : codeList) {
+			//this doesnt work and i hate it
+			
+			for (int i; i > codeList) {
 				VendingMachineProduct vmp = (VendingMachineProduct) iter.next();
 				
 				if(i.equalsIgnoreCase(itemCode) && vmp.getQuantity() > 0) {
 					PurchaseMenu currentMoney = new PurchaseMenu();
+					
 					System.out.println("Purchased " + vmp.getName() + "for $" + vmp.getPrice() + ". remaining money is " + (currentMoney.getTotalMoney() - vmp.getPrice()));
 					double moneyAfterPurchase = 0;
 					moneyAfterPurchase -= vmp.getPrice();
 					System.out.println(vmp.getMessage());
 				}
 			}
+			//so this is when we need to get this from the Purchase menu, and we need to set what was purchased and its price in a new variable
+			logger.println(vmp.getName() + getPrice() + totalMoney + moneyAfterSale);
 		}
 	}
 }
