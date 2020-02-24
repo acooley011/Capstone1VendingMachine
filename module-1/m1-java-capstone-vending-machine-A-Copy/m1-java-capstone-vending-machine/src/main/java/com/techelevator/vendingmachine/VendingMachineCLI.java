@@ -1,5 +1,9 @@
 package com.techelevator.vendingmachine;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Iterator;
 
 import com.techelevator.vendingmachine.product.VendingMachineProduct;
@@ -8,6 +12,7 @@ import com.techelevator.vendingmachine.view.Menu;
 public class VendingMachineCLI {
 
 	private static final String MAIN_MENU_OPTION_DISPLAY_ITEMS = "Display Vending Machine Items";
+	
 	private static final String MAIN_MENU_OPTION_PURCHASE = "Purchase";
 	//sf:Add Exit option
 	private static final String MAIN_MENU_OPTION_EXIT = "Exit";
@@ -22,11 +27,14 @@ public class VendingMachineCLI {
 	public VendingMachineCLI(Menu menu) {
 		this.menu = menu;
 	}
+	
+	
 
 	public void run() {
 		
 		//sf: create and instantiate VendingMachine (vm) Object
-		String inventoryList = "C:\\Users\\Student\\workspace\\java-module-1-capstone-team-6\\module-1\\capstone\\java\\src\\main\\resources\\vendo_stocks.txt";
+		//String inventoryList = "C:\\Users\\Student\\workspace\\java-module-1-capstone-team-6\\module-1\\capstone\\java\\src\\main\\resources\\vendo_stocks.txt";
+		String inventoryList = "C:\\Users\\Student\\Downloads\\m1-java-capstone-vending-machine-A-Copy\\m1-java-capstone-vending-machine\\vendingmachine.csv";
 		
 		//sf: invoke VML to get a new VM instance 
 		VendingMachineLoader vml = new VendingMachineLoader();
@@ -46,7 +54,7 @@ public class VendingMachineCLI {
 				
 				Iterator<VendingMachineProduct> iter =  vm.getVendoProducts().values().iterator();
 				
-				while(iter.hasNext() ) {
+				while( iter.hasNext() ) {
 					VendingMachineProduct vmp = (VendingMachineProduct) iter.next();
 						
 					if(vmp.getQuantity() < 1) {
@@ -71,14 +79,20 @@ public class VendingMachineCLI {
 			} else if (choice.equals(MAIN_MENU_OPTION_PURCHASE)) {
 				// call new class Purchase Menu and run it
 				Menu menu = new Menu(System.in, System.out);
-				PurchaseMenu nextMenu = new PurchaseMenu(menu);
+				//PurchaseMenu nextMenu = new PurchaseMenu(menu);
+				PurchaseMenu nextMenu = new PurchaseMenu(menu, vm.getVendoProducts());
 				nextMenu.run();
 				
 			} else if (choice.equals(MAIN_MENU_OPTION_EXIT)) { //sf: added exit menu
 				// do exit
 				System.out.println("Thank you for choosing Vendo-Matic 800!");
 				System.exit(0);
-			
+			} else if (choice.equals(MAIN_MENU_OPTION_DISPLAY_SALES_REPORT)) { //sf: added display report menu
+				// do sales report
+				System.out.println("--------------------------------");
+				System.out.println("Sales report of Vendo-Matic 800:");
+				System.out.println("--------------------------------");
+
 			}
 		}
 	}
