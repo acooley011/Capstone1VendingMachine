@@ -1,7 +1,7 @@
 package com.techelevator.vendingmachine;
 
 import java.util.Scanner;
-
+//sub-menu for accepting, processing the money feed by the user
 public class Bank {
 	static int totalFed = 0;
 	

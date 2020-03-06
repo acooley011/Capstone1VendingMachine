@@ -56,7 +56,7 @@ public class SelectItem {
 						System.out.println("----------------");
 						System.out.println("Sorry, not enough money!!!");
 						System.out.println("----------------");
-						//return to pruchase menu
+						//return to purchase menu
 						return totalMoney;
 
 					} else {
@@ -72,12 +72,12 @@ public class SelectItem {
 						String logThis = vmp.getName() + " " + vmp.getLocation() + " $" + String.valueOf(totalMoney) + " $" + remainingMoney;
 						log.log(logThis);
 						
-						//return to pruchase menu
+						//return to purchase menu
 						return remainingMoney;
 					}
 				} else {
 					System.out.println(vmp.getName() + " is SOLD OUT");
-					//return to pruchase menu
+					//return to purchase menu
 					return totalMoney;
 					
 				}

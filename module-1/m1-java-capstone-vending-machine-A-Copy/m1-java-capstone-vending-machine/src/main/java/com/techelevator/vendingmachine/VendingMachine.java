@@ -20,7 +20,7 @@ import com.techelevator.vendingmachine.product.VendingMachineProduct;
 
 public class VendingMachine {
 	
-	
+//	main class for vending that holds vm products, accepts money, and dispenses products
 	//attributes
 	
 	private Map<String, VendingMachineProduct> vendoProducts;

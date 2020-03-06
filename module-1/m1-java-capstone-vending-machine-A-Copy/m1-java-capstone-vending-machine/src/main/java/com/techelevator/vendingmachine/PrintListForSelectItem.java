@@ -5,6 +5,9 @@ import java.util.Map;
 
 import com.techelevator.vendingmachine.product.VendingMachineProduct;
 
+
+//sub menu called by the vending machine cli, through the main menu to display selected items
+
 public class PrintListForSelectItem {
 	
 	private Map<String, VendingMachineProduct> vendoProducts;

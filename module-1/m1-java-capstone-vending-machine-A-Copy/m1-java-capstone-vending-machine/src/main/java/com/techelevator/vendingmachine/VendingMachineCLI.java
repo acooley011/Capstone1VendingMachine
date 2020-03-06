@@ -8,6 +8,8 @@ import java.util.Iterator;
 
 import com.techelevator.vendingmachine.product.VendingMachineProduct;
 import com.techelevator.vendingmachine.view.Menu;
+ 
+//main class that instantiates the main class vm, it also runs the display menu for displaying the product list, purchasing menu, selecting items, feeding money, closing transactions
 
 public class VendingMachineCLI {
 
@@ -34,9 +36,12 @@ public class VendingMachineCLI {
 		
 		//sf: create and instantiate VendingMachine (vm) Object
 		//String inventoryList = "C:\\Users\\Student\\workspace\\java-module-1-capstone-team-6\\module-1\\capstone\\java\\src\\main\\resources\\vendo_stocks.txt";
-		String inventoryList = "C:\\Users\\Student\\Downloads\\m1-java-capstone-vending-machine-A-Copy\\m1-java-capstone-vending-machine\\vendingmachine.csv";
+//		String inventoryList = "C:\\Users\\Student\\Downloads\\m1-java-capstone-vending-machine-A-Copy\\m1-java-capstone-vending-machine\\vendingmachine.csv";
+		String inventoryList ="C:\\Users\\Student\\workspace\\java-module-1-capstone-team-6\\module-1\\m1-java-capstone-vending-machine-A-Copy\\m1-java-capstone-vending-machine\\src\\main\\resources\\vendo_stocks.txt";
 		
-		//sf: invoke VML to get a new VM instance 
+		
+		
+		//sf: invoke VML to get a new VM instance/ helper class
 		VendingMachineLoader vml = new VendingMachineLoader();
 				
 		//and load it with the inventory list

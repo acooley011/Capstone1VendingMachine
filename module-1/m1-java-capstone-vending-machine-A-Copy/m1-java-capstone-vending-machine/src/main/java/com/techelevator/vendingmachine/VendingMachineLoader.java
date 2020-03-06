@@ -11,6 +11,8 @@ import com.techelevator.vendingmachine.product.Candy;
 import com.techelevator.vendingmachine.product.Chip;
 import com.techelevator.vendingmachine.product.Gum;
 import com.techelevator.vendingmachine.product.VendingMachineProduct;
+//Helper class to accepts the input file, find, reads and process, parsing each line that loads
+//the inventory to the vending machine class
 
 public class VendingMachineLoader {
 
