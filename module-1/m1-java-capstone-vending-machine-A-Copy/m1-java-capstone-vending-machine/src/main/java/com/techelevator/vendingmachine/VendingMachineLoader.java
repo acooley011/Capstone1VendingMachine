@@ -82,11 +82,8 @@ public class VendingMachineLoader {
 			e.printStackTrace();
 		}
 		
-		
 		return vendoProducts;
 		
-		
 	}
-
 	
 }

@@ -75,6 +75,7 @@ public class SelectItem {
 						//return to pruchase menu
 						return remainingMoney;
 					}
+					
 				} else {
 					System.out.println(vmp.getName() + " is SOLD OUT");
 					//return to pruchase menu
