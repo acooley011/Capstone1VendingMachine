@@ -1,9 +1,5 @@
 package com.techelevator.vendingmachine;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.Iterator;
 
 import com.techelevator.vendingmachine.product.VendingMachineProduct;
@@ -19,10 +15,7 @@ public class VendingMachineCLI {
 	//sf:Add Exit option
 	private static final String MAIN_MENU_OPTION_EXIT = "Exit";
 	
-	//sf: add Display Sales report
-	private static final String MAIN_MENU_OPTION_DISPLAY_SALES_REPORT = "Display Sales Report";
-	
-	private static final String[] MAIN_MENU_OPTIONS = { MAIN_MENU_OPTION_DISPLAY_ITEMS, MAIN_MENU_OPTION_PURCHASE, MAIN_MENU_OPTION_EXIT, MAIN_MENU_OPTION_DISPLAY_SALES_REPORT };
+	private static final String[] MAIN_MENU_OPTIONS = { MAIN_MENU_OPTION_DISPLAY_ITEMS, MAIN_MENU_OPTION_PURCHASE, MAIN_MENU_OPTION_EXIT };
 
 	private Menu menu;
 
@@ -92,12 +85,6 @@ public class VendingMachineCLI {
 				// do exit
 				System.out.println("Thank you for choosing Vendo-Matic 800!");
 				System.exit(0);
-			} else if (choice.equals(MAIN_MENU_OPTION_DISPLAY_SALES_REPORT)) { //sf: added display report menu
-				// do sales report
-				System.out.println("--------------------------------");
-				System.out.println("Sales report of Vendo-Matic 800:");
-				System.out.println("--------------------------------");
-
 			}
 		}
 	}

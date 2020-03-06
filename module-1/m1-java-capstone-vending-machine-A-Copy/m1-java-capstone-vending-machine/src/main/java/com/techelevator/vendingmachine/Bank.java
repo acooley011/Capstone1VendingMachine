@@ -5,45 +5,50 @@ import java.util.Scanner;
 public class Bank {
 	static int totalFed = 0;
 	
-	private String dollar;
-	private int amount;
+	private int bill;
+	private int amountOfBill = 0;
 	
 	public Bank(String dollar, int amount) {
-		this.dollar = dollar;
-		this.amount = amount;
+		
 	}
 	
 	public double moneyFed() {
-		System.out.println("What type of bill are you giving? ($1, $2, $5, $10): ");
-		Scanner userInput = new Scanner(System.in);
-		String billInput = userInput.next();
-		int bill = 0;
+		while(true) {
+			System.out.println("What type of bill are you giving? ($1, $2, $5, $10): ");
+			int bill = 0;
+			String billInput = "";
 		
-		try {
-			bill = Integer.valueOf(billInput);
+			Scanner userInput = new Scanner(System.in);
+			billInput = userInput.next();
 			
-		} catch (Exception e) {
-			System.out.println(bill + " is not a valid bill, please input $1, $2, $5, or $10");
-			
-		}
+			if(billInput.equals("1") || billInput.equals("2") || billInput.equals("5") || billInput.equals("10")) {
+				bill = Integer.valueOf(billInput);
 		
-		System.out.println("How many of this bill? ");
-		String amountInput = userInput.next();
-		int amountOfBill = 0;
+			} else if(billInput.isEmpty()){
+				System.out.println(billInput + " is not a valid bill, please input $1, $2, $5, or $10");
+				return 0;
+			} else {
+				System.out.println(billInput + " is not a valid bill, please input $1, $2, $5, or $10");
+				return 0;
+			}
 		
-		try {
+			System.out.println("How many of this bill? ");
+		
+			String amountInput = userInput.next();
 			amountOfBill = Integer.valueOf(amountInput);
-			
-		} catch (Exception e) {
-			System.out.println(amountOfBill + " is not a valid amount");
-			
+		
+			if(Integer.valueOf(amountInput) < 20) {
+				totalFed = (bill * amountOfBill);
+
+				return totalFed;
+
+			} else {
+				System.out.println(billInput + " is not a valid amount, cannot input more than 20 bills at once.");
+				
+			}
+
 		}
-		
-		totalFed = (bill * amountOfBill);
-		
-		
-		
-		return totalFed;
+
 	}
 
 }
